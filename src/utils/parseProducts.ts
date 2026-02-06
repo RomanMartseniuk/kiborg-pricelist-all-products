@@ -1,6 +1,6 @@
 import type { Product } from "../types/Product";
 
-export function parseProducts(xml: string): Product[] {
+export function getXML(xml: string) {
   const parser = new DOMParser();
   const xmlDoc = parser.parseFromString(xml, "text/xml");
 
@@ -8,6 +8,12 @@ export function parseProducts(xml: string): Product[] {
   if (xmlDoc.querySelector("parsererror")) {
     throw new Error("XML parse error");
   }
+
+  return xmlDoc
+}
+
+export function parseProducts(xml: string): Product[] {
+  const xmlDoc = getXML(xml);
 
   const offers = Array.from(xmlDoc.querySelectorAll("offer"));
 
