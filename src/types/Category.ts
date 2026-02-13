@@ -1,5 +1,5 @@
-export type Category = {
+export interface Category {
    id: number,
-   name: string;
-   productCategoriesList: number[];
+   name: string,
+   slug: string,
 }

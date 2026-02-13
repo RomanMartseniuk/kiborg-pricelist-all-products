@@ -7,7 +7,7 @@ export interface Product {
   
   price: number;
   optPrice?: number;
-  dropPrice?: number;
+  dropPrice: number;
 
   currencyId: string;
   categoryId: string;
